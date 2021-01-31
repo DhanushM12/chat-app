@@ -16,7 +16,7 @@ io.on('connection', socket => {
         //console.log(message);
         socket.broadcast.emit('chat-message', {message: message, name: users[socket.id]});
     })
-    socket.on('disconneted', ()=> {
+    socket.on('disconnect', ()=> {
         socket.broadcast.emit('user-disconnected', users[socket.id]);
         delete users[socket.id];
     })
